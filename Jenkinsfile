@@ -18,14 +18,5 @@ pipeline {
           sh "touch ${WORKSPACE}/test_variables.txt"
         }
       }
-      stage('Vault') {
-        steps {
-          withVault([configuration: configuration, vaultSecrets: secrets]) {
-            sh "echo ${env.PRIVATE_TOKEN} > ${WORKSPACE}/test_variables.txt"
-            sh "echo ${env.PUBLIC_TOKEN} >> ${WORKSPACE}/test_variables.txt"
-            sh "echo ${env.API_KEY} >> ${WORKSPACE}/test_variables.txt"
-          }
-        }  
-      }
-    }
+      
 }
