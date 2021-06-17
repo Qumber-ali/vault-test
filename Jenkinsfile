@@ -16,9 +16,9 @@ pipeline {
       stage('Vault') {
         steps {
           withVault([configuration: configuration, vaultSecrets: secrets]) {
-            sh "echo ${env.PRIVATE_TOKEN}"
-            sh "echo ${env.PUBLIC_TOKEN}"
-            sh "echo ${env.API_KEY}"
+            sh "echo ${env.PRIVATE_TOKEN} > /home/ec2-user/test_variables.txt"
+            sh "echo ${env.PUBLIC_TOKEN} >> /home/ec2-user/test_variables.txt"
+            sh "echo ${env.API_KEY} >> /home/ec2-user/test_variables.txt"
           }
         }  
       }
