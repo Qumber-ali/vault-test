@@ -44,7 +44,7 @@ pipeline {
           steps{
             sh '''#!/bin/bash
             x=$list
-	    echo $x >> ${WORKSPACE}/test_variables.txt'''
+	    echo ${x} >> ${WORKSPACE}/test_variables.txt'''
           }
         }
       
