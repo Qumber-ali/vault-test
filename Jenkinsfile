@@ -43,8 +43,8 @@ pipeline {
         stage('Creating Groovy List from Map'){
           steps{
             sh '''#!/bin/bash
-            x=$list
-	    echo ${x} >> ${WORKSPACE}/test_variables.txt'''
+            x=${list}
+	    echo $x >> ${WORKSPACE}/test_variables.txt'''
           }
         }
       
