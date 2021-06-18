@@ -42,7 +42,7 @@ pipeline {
       }
         stage('Creating Groovy List from Map'){
           steps{
-		  sh "echo $json >> ${WORKSPACE}/test_variables.txt"
+		  sh "echo ${json}>> ${WORKSPACE}/test_variables.txt"
             
           }
         }
