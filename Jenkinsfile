@@ -43,10 +43,8 @@ pipeline {
         stage('Creating Groovy List from Map'){
           steps{
             sh '''#!/bin/bash
-            for i in "${secrets[@]}"
-            do 
-	            echo $i >> ${WORKSPACE}/test_variables.txt
-            done'''
+            x=$json
+	    echo $x >> ${WORKSPACE}/test_variables.txt'''
           }
         }
       
