@@ -25,7 +25,7 @@ def secrets = [
 ]
 
 def configuration = [vaultUrl: 'http://172.17.0.10:8200',  vaultCredentialId: 'vault-approle', engineVersion: 2]
-def list = map["hello"]
+def list = secrets["secretValues"]
                       
 pipeline {
     agent any
