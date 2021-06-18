@@ -46,7 +46,7 @@ pipeline {
 		  sh ''' #!/bin/bash
 		  set -ex 
 		  a=$(/root/.sdkman/candidates/groovy/2.3.6/bin/groovy /root/.sdkman/test | head -c -3 | tail -c +3)
-		  echo "I am before for loop"
+		  echo I am before for loop
 		  for i in "${a[@]}"
 		  do 
 	            echo "I am inside for loop"
