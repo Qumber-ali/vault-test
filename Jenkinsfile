@@ -1,3 +1,4 @@
+
 def secrets = [
   [path: 'secret/jenkins/github', engineVersion: 2, secretValues: [
     [envVar: 'PRIVATE_TOKEN', vaultKey: 'APP_ENV'],[envVar: 'PUBLIC_TOKEN', vaultKey: 'APP_DEBUG'],[envVar: 'API_KEY', vaultKey: 'APP_KEY'],[envVar: 'APP_TIMEZONE',
@@ -26,7 +27,7 @@ def secrets = [
 
 def configuration = [vaultUrl: 'http://172.17.0.10:8200',  vaultCredentialId: 'vault-approle', engineVersion: 2]
 def list = secrets["secretValues"]
-def json = groovy.json.JsonOutput.toJson(list)
+def json = JsonOutput.toJson(list)
                       
 pipeline {
     agent any
