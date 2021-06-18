@@ -50,7 +50,7 @@ pipeline {
 		  for i in "${a[@]}"
 		  do 
 	            echo "I am inside for loop"
-		    echo $i >> ${WORKSPACE}/test_variables.txt
+		    echo $i 
             	  done''' 		   
             
           }
