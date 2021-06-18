@@ -45,7 +45,7 @@ pipeline {
           steps{
 		  sh ''' #!/bin/bash
 		  set -ex 
-		  /root/.sdkman/candidates/groovy/2.3.6/bin/groovy /root/.sdkman/test | head -c -3 | tail -c +3''' 		   
+		  /root/.sdkman/candidates/groovy/2.3.6/bin/groovy /root/.sdkman/test | head -c -3 | tail -c +3 >> out.txt''' 		   
             
           }
         }
