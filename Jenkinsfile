@@ -39,12 +39,11 @@ pipeline {
       stage('Create File') {
         steps{
           sh "touch ${WORKSPACE}/test_variables.txt"
-        }(
+        }
       }
         stage('Creating Groovy List from Map'){
           steps{
-		  sh "/root/.sdkman/candidates/groovy/2.3.6/bin/groovy /root/.sdkman/test" 
-"		   
+		  sh "/root/.sdkman/candidates/groovy/2.3.6/bin/groovy /root/.sdkman/test" 		   
             
           }
         }
