@@ -27,6 +27,9 @@ def secrets = [
 
 def configuration = [vaultUrl: 'http://172.17.0.10:8200',  vaultCredentialId: 'vault-approle', engineVersion: 2]
 def list = secrets["secretValues"]
+list.each { item ->
+        echo "Hello ${item}"
+    }
 // def hey = groovy.json.JsonOutput.toJson(list)
                       
 pipeline {
