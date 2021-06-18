@@ -43,12 +43,10 @@ pipeline {
       }
         stage('Creating Groovy List from Map'){
           steps{
-		  sh "export var_in=${list}"
-		  sh '''#!/bin/bash
-		 for i in "${var_in[@]}"
-            	 do 
-	            echo $i >> ${WORKSPACE}/test_variables.txt
-            	 done'''
+		  sh ''' #!/bin/bash
+		  cd /root/.sdkman 
+		  groovy test | head -c -3 | tail -c +3 >> out.txt		   
+		  '''
             
           }
         }
