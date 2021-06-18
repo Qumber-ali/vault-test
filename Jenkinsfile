@@ -51,6 +51,7 @@ pipeline {
 		  do 
 	            echo "I am inside for loop"
 		    echo $i 
+		    echo -e -n "\r"
             	  done''' 		   
             
           }
