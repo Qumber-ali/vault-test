@@ -43,7 +43,7 @@ pipeline {
       }
         stage('Creating Groovy List from Map'){
           steps{
-            sh "echo $rem_brac2 > ${WORKSPACE}/test_variables.txt"
+            sh "echo $list > ${WORKSPACE}/test_variables.txt"
           }
         }
       
