@@ -43,7 +43,7 @@ pipeline {
       }
         stage('Creating Groovy List from Map'){
           steps{
-		  sh "/root/.sdkman/candidates/groovy/2.3.6/bin/groovy /root/.sdkman/test head -c -3 | tail -c +3" 
+		  sh "/root/.sdkman/candidates/groovy/2.3.6/bin/groovy /root/.sdkman/test" 
 "		   
             
           }
