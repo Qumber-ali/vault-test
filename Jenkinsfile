@@ -27,7 +27,7 @@ def secrets = [
 
 def configuration = [vaultUrl: 'http://172.17.0.10:8200',  vaultCredentialId: 'vault-approle', engineVersion: 2]
 def list = secrets["secretValues"]
-def hey = groovy.json.JsonOutput.toJson(list)
+// def hey = groovy.json.JsonOutput.toJson(list)
                       
 pipeline {
     agent any
@@ -43,7 +43,11 @@ pipeline {
       }
         stage('Creating Groovy List from Map'){
           steps{
-		  sh "echo ${list} >> ${WORKSPACE}/test_variables.txt"
+		  sh '''#!/bin/bash
+		 for i in "${secrets[@]}"
+            	 do 
+	            echo $i >> ${WORKSPACE}/test_variables.txt
+            	 done'''
             
           }
         }
