@@ -4,6 +4,8 @@ def SECRETS=[
 
 def configuration = [vaultUrl: 'http://172.17.0.10:8200',  vaultCredentialId: 'vault-approle', engineVersion: 2]
 def list = SECRETS["secretValues"]
+def json = groovy.json.JsonOutput.toJson(list)
+def rem_brac = json.substring(2, json.length() -2)
 list.each { item ->
         echo "Hello ${item}"
     }
@@ -29,7 +31,7 @@ pipeline {
       
 }
 	environment {
-		LIST="${list}"
+		JSON="${rem_brac}"
 	}
 
 }
