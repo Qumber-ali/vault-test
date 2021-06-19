@@ -47,8 +47,8 @@ pipeline {
         stage('Creating Groovy List from Map'){
           steps{
 		 sh '''#!/bin/bash
-		 LIST=(${list})
-		 echo ${LIST} >> /root/.sdkman/out.txt'''
+		 export LIST=(${list})
+		 echo $LIST >> /root/.sdkman/out.txt'''
           }
         }
       
