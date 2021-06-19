@@ -29,7 +29,7 @@ pipeline {
       
 }
 	environment {
-		LIST=${list}
+		LIST="${list}"
 	}
 
 }
