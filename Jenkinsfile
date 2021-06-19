@@ -48,7 +48,7 @@ pipeline {
           steps{
 		  sh '''#!/bin/bash
 		  LIST=(${list})
-		  sh "echo $LIST >> /root/.sdkman/out.txt"		   
+		  echo $LIST >> /root/.sdkman/out.txt		   
             	  '''
           }
         }
