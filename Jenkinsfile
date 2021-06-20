@@ -9,15 +9,15 @@ pipeline {
         disableConcurrentBuilds()
     }
     stages{   
-      stage('Create File') {
-        steps{
-          sh "touch ${WORKSPACE}/environment"
-        }
-      }
         stage('Creating Groovy List from Map'){
           steps{
 		  withVault([configuration: configuration, vaultSecrets: secrets]){
-		  sh "/root/.sdkman/candidates/groovy/2.3.6/bin/groovy /root/.sdkman/test >> /root/.sdkman/environment"
+		  sh '''#!/bin/bash
+		  touch ${WORKSPACE}/environment
+		  /root/.sdkman/candidates/groovy/2.3.6/bin/groovy /root/.sdkman/test >> /root/.sdkman/environment
+		  kubectl create secret generic ccm-test --from-file=/root/.sdman/environment -n ccm-fresh && exit(0)
+		  rm -f /root/.sdkman/environment
+		  '''
 		  }
 		  }
 	}
