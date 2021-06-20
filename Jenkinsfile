@@ -11,13 +11,13 @@ pipeline {
     stages{   
       stage('Create File') {
         steps{
-          sh "touch ${WORKSPACE}/test_variables.txt"
+          sh "touch ${WORKSPACE}/environment
         }
       }
         stage('Creating Groovy List from Map'){
           steps{
 		  withVault([configuration: configuration, vaultSecrets: secrets]){
-		  sh "/root/.sdkman/candidates/groovy/2.3.6/bin/groovy /root/.sdkman/test >> /root/.sdkman/out.txt"
+		  sh "/root/.sdkman/candidates/groovy/2.3.6/bin/groovy /root/.sdkman/test >> /root/.sdkman/environment"
 		  }
 		  }
 	}
