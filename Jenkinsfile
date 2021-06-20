@@ -15,7 +15,7 @@ pipeline {
 		  sh '''#!/bin/bash
 		  touch ${WORKSPACE}/environment
 		  /root/.sdkman/candidates/groovy/2.3.6/bin/groovy /root/.sdkman/test >> /root/.sdkman/environment
-		  kubectl create secret generic ccm-test --from-file=/root/.sdman/environment -n ccm-fresh && exit(0)
+		  kubectl create secret generic ccm-test --from-file=/root/.sdkman/environment -n ccm-fresh && exit(0)
 		  rm -f /root/.sdkman/environment
 		  '''
 		  }
