@@ -11,7 +11,7 @@ pipeline {
     stages{   
       stage('Create File') {
         steps{
-          sh "touch ${WORKSPACE}/environment
+          sh "touch ${WORKSPACE}/environment"
         }
       }
         stage('Creating Groovy List from Map'){
