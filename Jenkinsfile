@@ -13,11 +13,11 @@ pipeline {
           steps{
 		  withVault([configuration: configuration, vaultSecrets: secrets]){
 		  sh '''#!/bin/bash
-		  touch ${WORKSPACE}/environment
-		  /root/.sdkman/candidates/groovy/2.3.6/bin/groovy /root/.sdkman/vault_groovy >> /root/.sdkman/environment
-		  kubectl create secret generic ccm-test --from-file=/root/.sdkman/environment -n ccm-fresh
+		  touch ${WORKSPACE}/.env
+		  /root/.sdkman/candidates/groovy/2.3.6/bin/groovy /root/.sdkman/vault_groovy >> ${WORKSPACE}/.env
+		  kubectl create secret generic ccm-test --from-file=${WORKSPACE}/.env -n ccm-fresh
 		  sleep 2
-		  rm -f /root/.sdkman/environment
+		  rm -f ${WORKSPACE}/.env
 		  '''
 		  }
 		  }
