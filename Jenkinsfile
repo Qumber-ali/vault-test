@@ -14,7 +14,7 @@ pipeline {
 		  withVault([configuration: configuration, vaultSecrets: secrets]){
 		  sh '''#!/bin/bash
 		  touch ${WORKSPACE}/.env
-		  docker run --rm -w /app -v ${PWD}:/app groovy:3.0-jdk8 /root/.sdkman/vault_groovy >> ${WORKSPACE}/.env
+		  docker run --rm -w /app -v ${PWD}:/app groovy:3.0-jdk8 groovy /root/.sdkman/vault_groovy >> ${WORKSPACE}/.env
 		  kubectl create secret generic ccm-test --from-file=${WORKSPACE}/.env -n ccm-fresh
 		  sleep 2
 		  #rm -f ${WORKSPACE}/.env
